@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+section {
+    border: 1px solid black;
+}
+
+
+.main__info {
+    display: flex;
+
+    .name__handle__joined {
+
+        span {
+            display: block;
+        }
+    }
+}
+
+.number__stats {
+    display: flex;
+    border: 1px solid black;
+
+    .stats__section {
+        display: flex;
+        flex-direction: column;
+    }
+}

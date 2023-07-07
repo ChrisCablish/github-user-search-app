@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
+  <!-- mystyle -->
+  <link rel="stylesheet" href="/style.css">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <title>Frontend Mentor | GitHub user search app</title>
+  <!-- myscript -->
+  <script src="/script.js" defer></script>
 </head>
 <body>
 
-  devfinder
+  <!-- devfinder
 
   Light
   Dark
@@ -22,7 +26,53 @@
 
   Repos
   Followers
-  Following
+  Following -->
 
+  <main>
+    <section class="search__area">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id = "input">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" id="button" type="button" >Button</button>
+        </div>
+      </div>
+    </section>
+    <section class="stats__area">
+      <div class="main__info">
+        <div class="user__image" id="user__image"></div>
+        <div class="name__handle__joined">
+          <span class="user__name" id="user__name"></span>
+          <span class="user__handle" id="user__handle"></span>
+          <span class="user__joined" id="user__joined"></span>
+        </div>
+      </div>
+      <div class="bio__container">
+        <p class="bio" id="bio"></p>
+      </div>
+      <div class="number__stats">
+        <div class="stats__section repos">
+          <span class="stats__heading">Repos</span>
+          <span class="stats__number" id="repo__number"></span>
+        </div>
+        <div class="stats__section followers">
+          <span class="stats__heading">Followers</span>
+          <span class="stats__number" id="follower__number"></span>
+        </div>
+        <div class="stats__section following">
+          <span class="stats__heading">Following</span>
+          <span class="stats__number" id="following__number"></span>
+        </div>
+      </div>
+    </section>
+   
+
+    
+
+
+
+
+  </main>
+
+  
 </body>
 </html>
