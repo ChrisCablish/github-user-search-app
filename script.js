@@ -9,6 +9,10 @@ const userBio = document.getElementById('bio');
 const repoNumber = document.getElementById('repo__number');
 const followerNUmber = document.getElementById('follower__number');
 const followingNumber = document.getElementById('following__number');
+const userLocation = document.getElementById('location');
+const company = document.getElementById('company');
+const website = document.getElementById('website');
+const twitter = document.getElementById('twitter');
 
 fetch('https://api.github.com/users/chriscablish')
   .then(response => response.json())
@@ -45,6 +49,17 @@ fetch('https://api.github.com/users/chriscablish')
         followerNUmber.innerText = data.followers;
         //following
         followingNumber.innerText = data.following;
+        //location
+        userLocation.innerText = data.location;
+        //website
+        website.innerText = data.blog.replace(/^(https?:\/\/)?(www\.)?/, '');
+        website.href = data.blog;
+        //company 
+        company.innerText = data.company;
+        //twitter
+        twitter.innerText = `@${data.twitter_username}`;
+        console.log(data.twitter_username);
+
 
     });
 
