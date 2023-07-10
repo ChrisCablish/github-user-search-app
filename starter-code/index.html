@@ -13,66 +13,86 @@
   <script src="/script.js" defer></script>
 </head>
 <body>
-
-  <!-- devfinder
-
-  Light
-  Dark
-
-  Search GitHub username...
-  Search
-
-  Joined
-
-  Repos
-  Followers
-  Following -->
-
   <main>
-    <section class="search__area">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id = "input">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" id="button" type="button" >Button</button>
-        </div>
-      </div>
-    </section>
-    <section class="stats__area">
-      <div class="main__info">
-        <div class="user__image" id="user__image"></div>
-        <div class="name__handle__joined">
-          <span class="user__name" id="user__name"></span>
-          <span class="user__handle" id="user__handle"></span>
-          <span class="user__joined" id="user__joined"></span>
-        </div>
-      </div>
-      <div class="bio__container">
-        <p class="bio" id="bio"></p>
-      </div>
-      <div class="number__stats">
-        <div class="stats__section repos">
-          <span class="stats__heading">Repos</span>
-          <span class="stats__number" id="repo__number"></span>
-        </div>
-        <div class="stats__section followers">
-          <span class="stats__heading">Followers</span>
-          <span class="stats__number" id="follower__number"></span>
-        </div>
-        <div class="stats__section following">
-          <span class="stats__heading">Following</span>
-          <span class="stats__number" id="following__number"></span>
-        </div>
-      </div>
-    </section>
-   
 
+      <section class="search__bar">
+        <div class="icon__and__search">
+          <img src="/starter-code/assets/icon-search.svg" alt="">
+          <input type="text" placeholder="Search...">
+        </div>
+        <div class="error__and__button">
+          <span>error</span>
+          <button>Search</button>
+        </section>
+
+
+
+        
+        
+      </div>
     
-
-
-
-
+    <section class="stats__area">
+      <div class="row">
+        <div class="col-auto avatar_for_large_screens" id="avatar_for_large_screens"></div>
+        <div class="col all__other__content">
+          <div class="main__info">
+            <div class="user__image" id="user__image__sm"></div>
+            <div class="name__handle__joined container">
+              <div class="row">
+                <div class="col-sm name__and__handle">
+                  <span class="user__name" id="user__name"></span>
+                  <span class="user__handle" id="user__handle"></span>
+                </div>
+                <div class="col-sm joined">
+                  <span class="user__joined" id="user__joined"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bio__container">
+            <p class="bio" id="bio"></p>
+          </div>
+          <div class="number__stats">
+            <div class="stats__section repos">
+              <span class="stats__heading">Repos</span>
+              <span class="stats__number" id="repo__number"></span>
+            </div>
+            <div class="stats__section followers">
+              <span class="stats__heading">Followers</span>
+              <span class="stats__number" id="follower__number"></span>
+            </div>
+            <div class="stats__section following">
+              <span class="stats__heading">Following</span>
+              <span class="stats__number" id="following__number"></span>
+            </div>
+          </div>
+          <div class="container links__grid">
+            <div class="row">
+              <div class="col-sm links__column">
+                <div class="single__link__div">
+                  <img src="/starter-code/assets/icon-location.svg" alt="">
+                  <span>Location</span>
+                </div>
+                <div class="single__link__div">
+                  <img src="/starter-code/assets/icon-website.svg" alt="">
+                  <span>github.com/chriscablish</span>
+                </div>
+              </div>
+              <div class="col-sm links__column">
+                <div class="single__link__div">
+                  <img src="/starter-code/assets/icon-twitter.svg" alt="">
+                  <span>@chriscablish</span>
+                </div>
+                <div class="single__link__div">
+                  <img src="/starter-code/assets/icon-company.svg" alt="">
+                  <span>Browning Arms</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-
-  
 </body>
 </html>

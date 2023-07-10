@@ -1,6 +1,7 @@
 const searchInput = document.getElementById('input');
 const searchButton = document.getElementById('button');
-const userImage = document.getElementById('user__image');
+const userImageSmall = document.getElementById('user__image__sm');
+const userImageLarge = document.getElementById('avatar_for_large_screens')
 const userName = document.getElementById('user__name');
 const dateJoined = document.getElementById('user__joined');
 const userHandle = document.getElementById('user__handle');
@@ -10,15 +11,25 @@ const followerNUmber = document.getElementById('follower__number');
 const followingNumber = document.getElementById('following__number');
 
 fetch('https://api.github.com/users/chriscablish')
-    .then(response => response.json())
-    .then(data => {
-        //avatar
-        const profileImageURL = data.avatar_url;
-        const imgElement = document.createElement('img');
-        imgElement.src = profileImageURL;
-        imgElement.style.width = '50px';
-        imgElement.style.height = '50px'; 
-        userImage.appendChild(imgElement);
+  .then(response => response.json())
+  .then(data => {
+    //avatar
+    const profileImageURL = data.avatar_url;
+    
+    // Create the first img element for userImageSmall
+    const imgElementSmall = document.createElement('img');
+    imgElementSmall.src = profileImageURL;
+    imgElementSmall.style.width = '50px';
+    imgElementSmall.style.height = '50px'; 
+    userImageSmall.appendChild(imgElementSmall);
+    
+    // Create the second img element for userImageLarge
+    const imgElementLarge = document.createElement('img');
+    imgElementLarge.src = profileImageURL;
+    imgElementLarge.style.width = '50px';
+    imgElementLarge.style.height = '50px'; 
+    userImageLarge.appendChild(imgElementLarge);
+
         //username
         userName.innerText = data.name;
         //user handle
