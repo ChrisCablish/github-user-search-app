@@ -1,3 +1,11 @@
+// - On first load, show the profile information for Octocat.
+// - Display an error message (as shown in the design) if no user is found when a new search is made.
+// - If a GitHub user hasn't added their name, show their username where the name would be without the `@` symbol and again below with the `@` symbol.
+// - If a GitHub user's bio is empty, show the text "This profile has no bio" with transparency added (as shown in the design). The lorem ipsum text in the designs shows how the bio should look when it is present.
+// - If any of the location, website, twitter, or company properties are empty, show the text "Not Available" with transparency added (as shown in the design).
+// - Website, twitter, and company information should all be links to those resaources. For the company link, it should remove the `@` symbol and link to the company page on GitHub. For Octocat, with `@github` being returned for the company, this would lead to a URL of `https://github.com/github`.
+
+//variables
 const searchInput = document.getElementById('input');
 const searchButton = document.getElementById('button');
 const userImageSmall = document.getElementById('user__image__sm');
@@ -14,7 +22,8 @@ const company = document.getElementById('company');
 const website = document.getElementById('website');
 const twitter = document.getElementById('twitter');
 
-fetch('https://api.github.com/users/chriscablish')
+
+fetch('https://api.github.com/users/octocat')
   .then(response => response.json())
   .then(data => {
     //avatar
@@ -50,18 +59,51 @@ fetch('https://api.github.com/users/chriscablish')
         //following
         followingNumber.innerText = data.following;
         //location
-        userLocation.innerText = data.location;
+        if (data.location) {
+          userLocation.innerText = data.location;
+        } else {
+          userLocation.innerText = "Not Available"
+        }
         //website
-        website.innerText = data.blog.replace(/^(https?:\/\/)?(www\.)?/, '');
-        website.href = data.blog;
+        if (data.blog) {
+          website.innerText = data.blog
+          website.href = data.blog
+        } else {
+          website.innerText = 'Not Available';
+        }
         //company 
-        company.innerText = data.company;
-        //twitter
-        twitter.innerText = `@${data.twitter_username}`;
-        console.log(data.twitter_username);
+        console.log(data.company);
 
+        //if company is listed
+        if (data.company) {
+          if (data.company.charAt(0) === '@') {
+            company.innerText = data.company;
+            const trimmed = data.company.substring(1);
+            company.href = `https://github.com/${trimmed}`;
+          }
+          company.innerText = data.company
+        } else {
+          company.innerText = 'Not Available';
+        } 
+        
+        //twitter 
+        console.log(data.twitter_username);
+        if (data.twitter_username) {
+          twitter.innerText = `@${data.twitter_username}`;
+          twitter.href = `https://twitter.com/${data.twitter_username}`
+        } else {
+          twitter.innerText = 'Not Available';
+        }
+        
+        
+      
 
     });
+
+
+    
+
+
 
 
 
@@ -80,3 +122,12 @@ fetch('https://api.github.com/users/chriscablish')
     //     "created_at": "2015-01-01T12:00:00Z",
     //     "updated_at": "2023-07-07T08:30:00Z"
     //   }
+
+
+
+ 
+   
+
+    
+
+ 
