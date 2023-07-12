@@ -25,6 +25,15 @@ const input = document.getElementById('input');
 const button = document.getElementById('search__button');
 
 //functions
+
+const createImageElement = (src, width, height) => {
+  const imgElement = document.createElement('img');
+  imgElement.src = src;
+  imgElement.style.width = width;
+  imgElement.style.height = height;
+  return imgElement;
+}
+
 const updateDisplay = (searchedUser) => {
 
   fetch(`https://api.github.com/users/${searchedUser}`)
@@ -32,22 +41,26 @@ const updateDisplay = (searchedUser) => {
   .then(data => {
     //avatar
     const profileImageURL = data.avatar_url;
-    
-    // Create the first img element for userImageSmall
-    const imgElementSmall = document.createElement('img');
-    imgElementSmall.src = profileImageURL;
-    imgElementSmall.style.width = '50px';
-    imgElementSmall.style.height = '50px'; 
-    userImageSmall.innerHTML = '';
-    userImageSmall.appendChild(imgElementSmall);
-    
-    // Create the second img element for userImageLarge
-    const imgElementLarge = document.createElement('img');
-    imgElementLarge.src = profileImageURL;
-    imgElementLarge.style.width = '50px';
-    imgElementLarge.style.height = '50px'; 
+    userImageSmall.innerHTML = ''
+    userImageSmall.appendChild(createImageElement(profileImageURL, '50px', '50px'));
     userImageLarge.innerHTML = '';
-    userImageLarge.appendChild(imgElementLarge);
+    userImageLarge.appendChild(createImageElement(profileImageURL, '50px', '50px'));
+    
+    // // Create the first img element for userImageSmall
+    // const imgElementSmall = document.createElement('img');
+    // imgElementSmall.src = profileImageURL;
+    // imgElementSmall.style.width = '50px';
+    // imgElementSmall.style.height = '50px'; 
+    // userImageSmall.innerHTML = '';
+    // userImageSmall.appendChild(imgElementSmall);
+    
+    // // Create the second img element for userImageLarge
+    // const imgElementLarge = document.createElement('img');
+    // imgElementLarge.src = profileImageURL;
+    // imgElementLarge.style.width = '50px';
+    // imgElementLarge.style.height = '50px'; 
+    // userImageLarge.innerHTML = '';
+    // userImageLarge.appendChild(imgElementLarge);
 
         //username
         userName.innerText = data.name;
