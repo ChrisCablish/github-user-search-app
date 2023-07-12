@@ -21,9 +21,13 @@ const userLocation = document.getElementById('location');
 const company = document.getElementById('company');
 const website = document.getElementById('website');
 const twitter = document.getElementById('twitter');
+const input = document.getElementById('input');
+const button = document.getElementById('search__button');
 
+//functions
+const updateDisplay = (searchedUser) => {
 
-fetch('https://api.github.com/users/octocat')
+  fetch(`https://api.github.com/users/${searchedUser}`)
   .then(response => response.json())
   .then(data => {
     //avatar
@@ -34,6 +38,7 @@ fetch('https://api.github.com/users/octocat')
     imgElementSmall.src = profileImageURL;
     imgElementSmall.style.width = '50px';
     imgElementSmall.style.height = '50px'; 
+    userImageSmall.innerHTML = '';
     userImageSmall.appendChild(imgElementSmall);
     
     // Create the second img element for userImageLarge
@@ -41,6 +46,7 @@ fetch('https://api.github.com/users/octocat')
     imgElementLarge.src = profileImageURL;
     imgElementLarge.style.width = '50px';
     imgElementLarge.style.height = '50px'; 
+    userImageLarge.innerHTML = '';
     userImageLarge.appendChild(imgElementLarge);
 
         //username
@@ -65,40 +71,52 @@ fetch('https://api.github.com/users/octocat')
           userLocation.innerText = "Not Available"
         }
         //website
+        console.log(data.blog);
         if (data.blog) {
           website.innerText = data.blog
+          console.log('flag');
           website.href = data.blog
+          console.log(website.href);
         } else {
           website.innerText = 'Not Available';
+          website.removeAttribute('href');
         }
-        //company 
-        console.log(data.company);
 
-        //if company is listed
+        //company 
+        company.removeAttribute('href');
         if (data.company) {
           if (data.company.charAt(0) === '@') {
             company.innerText = data.company;
             const trimmed = data.company.substring(1);
             company.href = `https://github.com/${trimmed}`;
+          } else {
+            company.innerText = data.company
           }
-          company.innerText = data.company
         } else {
           company.innerText = 'Not Available';
         } 
-        
         //twitter 
-        console.log(data.twitter_username);
+        twitter.removeAttribute('href');
         if (data.twitter_username) {
           twitter.innerText = `@${data.twitter_username}`;
           twitter.href = `https://twitter.com/${data.twitter_username}`
         } else {
           twitter.innerText = 'Not Available';
         }
-        
-        
-      
-
     });
+
+}
+
+
+
+//execution
+
+updateDisplay('chriscablish');
+
+
+button.addEventListener('click', () => {
+  updateDisplay(input.value);
+})
 
 
     
