@@ -1,9 +1,3 @@
-// - On first load, show the profile information for Octocat.
-// - Display an error message (as shown in the design) if no user is found when a new search is made.
-// - If a GitHub user hasn't added their name, show their username where the name would be without the `@` symbol and again below with the `@` symbol.
-// - If a GitHub user's bio is empty, show the text "This profile has no bio" with transparency added (as shown in the design). The lorem ipsum text in the designs shows how the bio should look when it is present.
-// - If any of the location, website, twitter, or company properties are empty, show the text "Not Available" with transparency added (as shown in the design).
-// - Website, twitter, and company information should all be links to those resaources. For the company link, it should remove the `@` symbol and link to the company page on GitHub. For Octocat, with `@github` being returned for the company, this would lead to a URL of `https://github.com/github`.
 
 //variables
 const searchInput = document.getElementById('input');
@@ -23,6 +17,7 @@ const website = document.getElementById('website');
 const twitter = document.getElementById('twitter');
 const input = document.getElementById('input');
 const button = document.getElementById('search__button');
+const errorMessage = document.getElementById('error');
 
 //functions
 
@@ -35,9 +30,18 @@ const createImageElement = (src, width, height) => {
 }
 
 const updateDisplay = (searchedUser) => {
-
+  error.style.display = 'none';
   fetch(`https://api.github.com/users/${searchedUser}`)
-  .then(response => response.json())
+  .then(response => {
+    if (response.status === 404) {
+      console.log('error');
+      error.style.display = 'inline';
+      throw new Error('User not found son');
+      
+    }
+    return response.json()
+  }
+    )
   .then(data => {
     //avatar
     const profileImageURL = data.avatar_url;
@@ -45,32 +49,23 @@ const updateDisplay = (searchedUser) => {
     userImageSmall.appendChild(createImageElement(profileImageURL, '50px', '50px'));
     userImageLarge.innerHTML = '';
     userImageLarge.appendChild(createImageElement(profileImageURL, '50px', '50px'));
-    
-    // // Create the first img element for userImageSmall
-    // const imgElementSmall = document.createElement('img');
-    // imgElementSmall.src = profileImageURL;
-    // imgElementSmall.style.width = '50px';
-    // imgElementSmall.style.height = '50px'; 
-    // userImageSmall.innerHTML = '';
-    // userImageSmall.appendChild(imgElementSmall);
-    
-    // // Create the second img element for userImageLarge
-    // const imgElementLarge = document.createElement('img');
-    // imgElementLarge.src = profileImageURL;
-    // imgElementLarge.style.width = '50px';
-    // imgElementLarge.style.height = '50px'; 
-    // userImageLarge.innerHTML = '';
-    // userImageLarge.appendChild(imgElementLarge);
 
         //username
-        userName.innerText = data.name;
+        userName.innerText = data.name ? data.name : data.login
         //user handle
         userHandle.innerText = `@${data.login}`;
         //date joined
         const formattedDate = new Date(data.created_at).toLocaleDateString();
         dateJoined.innerText = `Joined ${formattedDate}`;
         //bio
-        userBio.innerText = data.bio;
+        if (data.bio) {
+          userBio.innerText = data.bio
+          userBio.classList.remove('grayed');
+        } else {
+          userBio.innerText = 'This profile has no bio.'
+          userBio.classList.add('grayed');
+        }
+        // userBio.innerText = data.bio;
         //repos
         repoNumber.innerText = data.public_repos;
         //followers
@@ -78,27 +73,32 @@ const updateDisplay = (searchedUser) => {
         //following
         followingNumber.innerText = data.following;
         //location
+
         if (data.location) {
-          userLocation.innerText = data.location;
+          userLocation.innerText = data.location
+          userLocation.classList.remove('grayed');
         } else {
-          userLocation.innerText = "Not Available"
+          userLocation.innerText = 'Not Available';
+          userLocation.classList.add('grayed');
         }
         //website
-        console.log(data.blog);
         if (data.blog) {
+          website.classList.remove('grayed');
           website.innerText = data.blog
-          console.log('flag');
           website.href = data.blog
           console.log(website.href);
         } else {
+          website.classList.add('grayed');
           website.innerText = 'Not Available';
           website.removeAttribute('href');
         }
 
-        //company 
+        // company 
+        company.classList.remove('grayed');
         company.removeAttribute('href');
         if (data.company) {
           if (data.company.charAt(0) === '@') {
+            
             company.innerText = data.company;
             const trimmed = data.company.substring(1);
             company.href = `https://github.com/${trimmed}`;
@@ -107,52 +107,30 @@ const updateDisplay = (searchedUser) => {
           }
         } else {
           company.innerText = 'Not Available';
+          company.classList.add('grayed');
         } 
+
         //twitter 
+        twitter.classList.remove('grayed');
         twitter.removeAttribute('href');
         if (data.twitter_username) {
           twitter.innerText = `@${data.twitter_username}`;
           twitter.href = `https://twitter.com/${data.twitter_username}`
         } else {
+          twitter.classList.add('grayed');
           twitter.innerText = 'Not Available';
         }
     });
 
 }
 
-
-
 //execution
-
 updateDisplay('chriscablish');
-
 
 button.addEventListener('click', () => {
   updateDisplay(input.value);
-})
+});
 
-
-    
-
-
-
-
-
-
-    // {
-    //     "login": "chriscablish",
-    //     "id": 123456789,
-    //     "name": "Chris Cablish",
-    //     "public_repos": 10,
-    //     "followers": 500,
-    //     "following": 200,
-    //     "avatar_url": "https://avatars.githubusercontent.com/u/123456789",
-    //     "bio": "Software Developer passionate about coding",
-    //     "location": "San Francisco, CA",
-    //     "company": "GitHub Inc.",
-    //     "created_at": "2015-01-01T12:00:00Z",
-    //     "updated_at": "2023-07-07T08:30:00Z"
-    //   }
 
 
 

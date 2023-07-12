@@ -12,6 +12,11 @@ body {
   min-height: 100vh;
 }
 
+.grayed {
+  color: gray;
+  text-decoration: none;
+}
+
 main {
   display: flex;
   flex-direction: column;
