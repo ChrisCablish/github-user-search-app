@@ -55,8 +55,39 @@ const updateDisplay = (searchedUser) => {
         //user handle
         userHandle.innerText = `@${data.login}`;
         //date joined
-        const formattedDate = new Date(data.created_at).toLocaleDateString();
-        dateJoined.innerText = `Joined ${formattedDate}`;
+        // const formattedDate = new Date(data.created_at).toLocaleDateString();
+        
+
+        const dateObject = new Date(data.created_at);
+          //date
+        const date = dateObject.getDate();
+          //month
+        const monthNumber = dateObject.getMonth();
+        const monthsOfYear = {
+          0: "Jan",
+          1: "Feb",
+          2: "Mar",
+          3: "Apr",
+          4: "May",
+          5: "Jun",
+          6: "Jul",
+          7: "Aug",
+          8: "Sep",
+          9: "Oct",
+          10: "Nov",
+          11: "Dec"
+        };
+        const month = monthsOfYear[monthNumber];
+          //year
+        const year = dateObject.getFullYear();
+          //display
+        dateJoined.innerText = `Joined ${date} ${month} ${year}`;
+
+
+
+
+
+
         //bio
         if (data.bio) {
           userBio.innerText = data.bio
@@ -86,7 +117,6 @@ const updateDisplay = (searchedUser) => {
           website.classList.remove('grayed');
           website.innerText = data.blog
           website.href = data.blog
-          console.log(website.href);
         } else {
           website.classList.add('grayed');
           website.innerText = 'Not Available';
@@ -125,7 +155,7 @@ const updateDisplay = (searchedUser) => {
 }
 
 //execution
-updateDisplay('chriscablish');
+updateDisplay('octocat');
 
 button.addEventListener('click', () => {
   updateDisplay(input.value);
@@ -140,3 +170,5 @@ button.addEventListener('click', () => {
     
 
  
+
+
