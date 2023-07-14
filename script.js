@@ -52,12 +52,11 @@ const updateDisplay = (searchedUser) => {
 
         //username
         userName.innerText = data.name ? data.name : data.login
+
         //user handle
         userHandle.innerText = `@${data.login}`;
-        //date joined
-        // const formattedDate = new Date(data.created_at).toLocaleDateString();
-        
 
+        //date joined
         const dateObject = new Date(data.created_at);
           //date
         const date = dateObject.getDate();
@@ -83,11 +82,6 @@ const updateDisplay = (searchedUser) => {
           //display
         dateJoined.innerText = `Joined ${date} ${month} ${year}`;
 
-
-
-
-
-
         //bio
         if (data.bio) {
           userBio.innerText = data.bio
@@ -103,8 +97,8 @@ const updateDisplay = (searchedUser) => {
         followerNUmber.innerText = data.followers;
         //following
         followingNumber.innerText = data.following;
+        
         //location
-
         if (data.location) {
           userLocation.innerText = data.location
           userLocation.classList.remove('grayed');
