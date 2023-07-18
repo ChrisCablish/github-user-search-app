@@ -24,6 +24,7 @@ const light = document.getElementById('light__holder');
 const body = document.querySelector('body');
 const header = document.querySelector('header');
 const sections = document.querySelectorAll('section');
+const stats = document.getElementById('number__stats');
 
 
 
@@ -177,6 +178,7 @@ modeSwitch.addEventListener('click', (event) => {
       s.classList.add('section__dark__background');
     });
     modeSwitch.classList.add('white__text');
+    stats.classList.add('dark__background');
     body.classList.add('dark__background');
     body.classList.add('white__text');
     header.classList.add('white__text');
@@ -184,8 +186,12 @@ modeSwitch.addEventListener('click', (event) => {
     dark.style.display = 'none';
     isLight = false;
   } else {
-    //body background
+    sections.forEach((s) => {
+      s.classList.remove('section__dark__background');
+    });
+    
     modeSwitch.classList.remove('white__text');
+    stats.classList.remove('dark__background');
     body.classList.remove('dark__background');
     body.classList.remove('white__text');
     header.classList.remove('white__text');
