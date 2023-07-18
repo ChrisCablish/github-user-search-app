@@ -14,7 +14,6 @@ $white: rgba(254, 254, 254, 1);
 $black: rgba(20, 29, 47, 1);
 $veryDarkBlue: rgba(30, 42, 71, 1);
 
-
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +26,7 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 100%;
 }
 
 .grayed {
@@ -50,8 +50,6 @@ header {
     font-weight: 700;
     line-height: normal;
     margin-bottom: 0;
-    
-    
   }
 
   .header__items__container {
@@ -62,12 +60,11 @@ header {
 
     .mode__switch__to__light,
     .mode__switch__to__dark {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
-
   }
 }
 
@@ -78,8 +75,6 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-
-  //nest everything besides header inside main
 }
 
 section.search__bar {
@@ -91,70 +86,107 @@ section.search__bar {
   .icon__and__search {
     padding: 1rem;
     display: flex;
-    max-width: 50%;
+    max-width: 45%;
+    overflow: hidden;
 
     input {
-        border: none;
-        outline: none;
-        flex: 1;
-        max-width: 100%;
-      }
-    
+      border: none;
+      outline: none;
+      flex: 1;
+      max-width: 100%;
+    }
   }
 
   .error__and__button {
     display: flex;
     align-items: center;
+    // text-align: right;
     gap: 1.5rem;
-    width: 50%;
+    // width: 50%;
 
     .error__container {
-        height: 25px;
-        width: 50px;
+      // height: 25px;
+      // width: 50px;
     }
 
     #error {
-        font-size: 0.9375rem;
+      font-size: 0.9375rem;
     }
 
     button {
-        padding: 0.75rem;
-        border: 1px solid black;
+      padding: 0.75rem;
+      margin-right: 3px;
+      border: 1px solid black;
+      border-radius: 1rem;
     }
   }
-
-  
 }
 
 .avatar_for_large_screens {
   display: none;
 }
 
-.main__info {
-  display: flex;
+section.stats__area {
+  width: 100%;
+  padding: 24px;
 
-  .name__handle__joined {
-    span {
-      display: block;
+  .main__info {
+    display: flex;
+    border: 1px solid black;
+
+    .user__image {
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .name__handle__joined {
+      span {
+        display: block;
+      }
+    }
+  }
+
+  .bio__container {
+    margin-top: 33px;
+    margin-bottom: 23px;
+  }
+
+  .number__stats {
+    display: flex;
+    border: 1px solid black;
+    margin-bottom: 24px;
+    padding: 18px;
+    justify-content: space-between;
+
+    .stats__section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      // border: 1px solid black;
+    }
+  }
+
+  .links__grid {
+    margin-bottom: 32px;
+
+    .single__link__div {
+      margin-bottom: 1rem;
     }
   }
 }
 
-section.stats__area {
-  width: 100%;
+
+
+
+//TABLET
+@media (min-width: 768px) {
 }
 
-.number__stats {
-  display: flex;
-  border: 1px solid black;
 
-  .stats__section {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-@media (min-width: 576px) {
+//DESKTOP
+@media (min-width: 1200px) {
   #user__image__sm {
     display: none;
   }

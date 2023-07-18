@@ -10,6 +10,7 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 100%;
 }
 
 .grayed {
@@ -66,7 +67,8 @@ section.search__bar {
 section.search__bar .icon__and__search {
   padding: 1rem;
   display: flex;
-  max-width: 50%;
+  max-width: 45%;
+  overflow: hidden;
 }
 section.search__bar .icon__and__search input {
   border: none;
@@ -78,45 +80,60 @@ section.search__bar .error__and__button {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  width: 50%;
-}
-section.search__bar .error__and__button .error__container {
-  height: 25px;
-  width: 50px;
 }
 section.search__bar .error__and__button #error {
   font-size: 0.9375rem;
 }
 section.search__bar .error__and__button button {
   padding: 0.75rem;
+  margin-right: 3px;
   border: 1px solid black;
+  border-radius: 1rem;
 }
 
 .avatar_for_large_screens {
   display: none;
 }
 
-.main__info {
-  display: flex;
-}
-.main__info .name__handle__joined span {
-  display: block;
-}
-
 section.stats__area {
   width: 100%;
+  padding: 24px;
 }
-
-.number__stats {
+section.stats__area .main__info {
   display: flex;
   border: 1px solid black;
 }
-.number__stats .stats__section {
+section.stats__area .main__info .user__image img {
+  border-radius: 50%;
+}
+section.stats__area .main__info .name__handle__joined span {
+  display: block;
+}
+section.stats__area .bio__container {
+  margin-top: 33px;
+  margin-bottom: 23px;
+}
+section.stats__area .number__stats {
+  display: flex;
+  border: 1px solid black;
+  margin-bottom: 24px;
+  padding: 18px;
+  justify-content: space-between;
+}
+section.stats__area .number__stats .stats__section {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+section.stats__area .links__grid {
+  margin-bottom: 32px;
+}
+section.stats__area .links__grid .single__link__div {
+  margin-bottom: 1rem;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 1200px) {
   #user__image__sm {
     display: none;
   }

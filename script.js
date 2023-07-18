@@ -46,7 +46,7 @@ const updateDisplay = (searchedUser) => {
     //avatar
     const profileImageURL = data.avatar_url;
     userImageSmall.innerHTML = ''
-    userImageSmall.appendChild(createImageElement(profileImageURL, '50px', '50px'));
+    userImageSmall.appendChild(createImageElement(profileImageURL, '70px', '70px'));
     userImageLarge.innerHTML = '';
     userImageLarge.appendChild(createImageElement(profileImageURL, '50px', '50px'));
 
