@@ -18,6 +18,14 @@ const twitter = document.getElementById('twitter');
 const input = document.getElementById('input');
 const button = document.getElementById('search__button');
 const errorMessage = document.getElementById('error');
+const modeSwitch = document.getElementById('mode__switch__button');
+const dark = document.getElementById('dark__holder');
+const light = document.getElementById('light__holder');
+const body = document.querySelector('body');
+const header = document.querySelector('header');
+const sections = document.querySelectorAll('section');
+
+
 
 //functions
 
@@ -151,9 +159,44 @@ const updateDisplay = (searchedUser) => {
 //execution
 updateDisplay('octocat');
 
+//search button
 button.addEventListener('click', () => {
   updateDisplay(input.value);
 });
+
+
+// mode switch (light/dark)
+let isLight = true;
+console.log(isLight);
+light.style.display = 'none';
+dark.style.display = 'inline';
+modeSwitch.addEventListener('click', (event) => {
+  //light/dark button display
+  if (isLight) {
+    sections.forEach((s) => {
+      s.classList.add('section__dark__background');
+    });
+    modeSwitch.classList.add('white__text');
+    body.classList.add('dark__background');
+    body.classList.add('white__text');
+    header.classList.add('white__text');
+    light.style.display = 'inline';
+    dark.style.display = 'none';
+    isLight = false;
+  } else {
+    //body background
+    modeSwitch.classList.remove('white__text');
+    body.classList.remove('dark__background');
+    body.classList.remove('white__text');
+    header.classList.remove('white__text');
+    light.style.display = 'none';
+    dark.style.display = 'inline';
+    isLight = true;
+  }
+});
+
+
+
 
 
 

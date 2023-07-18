@@ -1,3 +1,31 @@
+body {
+  background-color: rgb(246, 248, 255) !important;
+}
+
+section {
+  background-color: rgb(254, 254, 254);
+}
+
+.number__stats {
+  background-color: rgb(246, 248, 255);
+}
+
+section {
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+}
+
+.dark__background {
+  background-color: rgb(20, 29, 47) !important;
+}
+
+.white__text {
+  color: rgb(254, 254, 254) !important;
+}
+
+.section__dark__background {
+  background-color: rgb(30, 42, 71);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +39,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   max-width: 100%;
+  background-color: rgb(246, 248, 255);
+  color: #2b3442;
 }
 
 .grayed {
@@ -19,17 +49,15 @@ body {
 }
 
 section {
-  border: 1px solid black;
+  border: none;
 }
 
 header {
   width: 90%;
-  border: 1px solid black;
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
 header h1 {
-  color: #2b3442;
   font-size: 1.625rem;
   font-weight: 700;
   line-height: normal;
@@ -40,6 +68,10 @@ header .header__items__container {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+header .header__items__container .mode__switch__button {
+  border: none;
+  background-color: transparent;
 }
 header .header__items__container .mode__switch__to__light,
 header .header__items__container .mode__switch__to__dark {
@@ -63,12 +95,15 @@ section.search__bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 0.5rem;
 }
 section.search__bar .icon__and__search {
   padding: 1rem;
   display: flex;
   max-width: 45%;
   overflow: hidden;
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 section.search__bar .icon__and__search input {
   border: none;
@@ -82,13 +117,17 @@ section.search__bar .error__and__button {
   gap: 1.5rem;
 }
 section.search__bar .error__and__button #error {
+  color: #f74646;
   font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 section.search__bar .error__and__button button {
   padding: 0.75rem;
   margin-right: 3px;
-  border: 1px solid black;
-  border-radius: 1rem;
+  border: none;
+  border-radius: 0.5rem;
 }
 
 .avatar_for_large_screens {
@@ -98,10 +137,15 @@ section.search__bar .error__and__button button {
 section.stats__area {
   width: 100%;
   padding: 24px;
+  border-radius: 0.5rem;
 }
 section.stats__area .main__info {
   display: flex;
-  border: 1px solid black;
+  border: none;
+}
+section.stats__area .main__info .user__name {
+  font-size: 1rem;
+  font-weight: 700;
 }
 section.stats__area .main__info .user__image img {
   border-radius: 50%;
@@ -115,10 +159,11 @@ section.stats__area .bio__container {
 }
 section.stats__area .number__stats {
   display: flex;
-  border: 1px solid black;
+  border: none;
   margin-bottom: 24px;
   padding: 18px;
   justify-content: space-between;
+  border-radius: 0.5rem;
 }
 section.stats__area .number__stats .stats__section {
   display: flex;
@@ -133,12 +178,43 @@ section.stats__area .links__grid .single__link__div {
   margin-bottom: 1rem;
 }
 
-@media (min-width: 1200px) {
-  #user__image__sm {
+@media (min-width: 576px) {
+  body {
+    justify-content: center;
+  }
+  body header {
+    width: 80%;
+  }
+  body main {
+    width: 80%;
+  }
+  body section.stats__area {
+    padding: 48px;
+  }
+  body section.stats__area .number__stats .stats__section {
+    text-align: left !important;
+  }
+  body section.stats__area .links__grid {
+    margin: 0;
+  }
+  body section.stats__area #user__image__sm {
     display: none;
   }
-  .avatar_for_large_screens {
+  body section.stats__area .avatar_for_large_screens {
     display: block;
+  }
+  body section.stats__area .avatar_for_large_screens img {
+    height: 117px !important;
+    width: 117px !important;
+    border-radius: 50%;
+  }
+}
+@media (min-width: 992px) {
+  main {
+    width: 50% !important;
+  }
+  header {
+    width: 50% !important;
   }
 }
 

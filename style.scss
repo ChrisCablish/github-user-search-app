@@ -6,6 +6,8 @@ $paleBlue: rgba(75, 106, 155, 1);
 $dark: rgba(43, 52, 66, 1);
 $gray: rgba(43, 52, 66, 1);
 $offWhite: rgba(43, 52, 66, 1);
+$backgroundLight: rgba(246, 248, 255, 1);
+$white: rgba(254, 254, 254, 1);
 
 //dark mode colors
 
@@ -13,6 +15,39 @@ $blue: rgba(0, 121, 255, 1);
 $white: rgba(254, 254, 254, 1);
 $black: rgba(20, 29, 47, 1);
 $veryDarkBlue: rgba(30, 42, 71, 1);
+
+//COLOR DEFINITIONS (LIGHT MODE)
+body {
+  background-color: $backgroundLight !important;
+}
+
+section {
+  background-color: $white;
+}
+
+.number__stats {
+  background-color: $backgroundLight;
+}
+
+section {
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.20);
+}
+
+//COLOR DEFINITIONS (dark mode)
+
+.dark__background {
+  background-color: $black !important;
+}
+
+.white__text {
+  color: $white !important;
+}
+
+.section__dark__background {
+  background-color: $veryDarkBlue;
+}
+
+
 
 * {
   margin: 0;
@@ -27,6 +62,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   max-width: 100%;
+  background-color: $backgroundLight;
+  color: #2b3442;
 }
 
 .grayed {
@@ -35,17 +72,16 @@ body {
 }
 
 section {
-  border: 1px solid black;
+  border: none;
 }
 
 header {
   width: 90%;
-  border: 1px solid black;
   margin-bottom: 2rem;
   margin-top: 2rem;
 
   h1 {
-    color: #2b3442;
+    // color: #2b3442;
     font-size: 1.625rem;
     font-weight: 700;
     line-height: normal;
@@ -57,6 +93,11 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    .mode__switch__button {
+      border: none;
+      background-color: transparent;
+    }
 
     .mode__switch__to__light,
     .mode__switch__to__dark {
@@ -82,12 +123,16 @@ section.search__bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 0.5rem;
 
   .icon__and__search {
     padding: 1rem;
     display: flex;
+    // width: 100%;
     max-width: 45%;
     overflow: hidden;
+    font-size: 0.8rem;
+    font-weight: 400;
 
     input {
       border: none;
@@ -100,24 +145,21 @@ section.search__bar {
   .error__and__button {
     display: flex;
     align-items: center;
-    // text-align: right;
     gap: 1.5rem;
-    // width: 50%;
-
-    .error__container {
-      // height: 25px;
-      // width: 50px;
-    }
 
     #error {
+      color: #f74646;
       font-size: 0.9375rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     }
 
     button {
       padding: 0.75rem;
       margin-right: 3px;
-      border: 1px solid black;
-      border-radius: 1rem;
+      border: none;
+      border-radius: 0.5rem;
     }
   }
 }
@@ -129,10 +171,16 @@ section.search__bar {
 section.stats__area {
   width: 100%;
   padding: 24px;
+  border-radius: 0.5rem;
 
   .main__info {
     display: flex;
-    border: 1px solid black;
+    border: none;
+
+    .user__name {
+      font-size: 1rem;
+      font-weight: 700;
+    }
 
     .user__image {
       img {
@@ -154,17 +202,19 @@ section.stats__area {
 
   .number__stats {
     display: flex;
-    border: 1px solid black;
+    border: none;
     margin-bottom: 24px;
     padding: 18px;
     justify-content: space-between;
+    border-radius: 0.5rem;
 
     .stats__section {
       display: flex;
       flex-direction: column;
       gap: 8px;
       text-align: center;
-      // border: 1px solid black;
+
+      // border: none;
     }
   }
 
@@ -177,21 +227,55 @@ section.stats__area {
   }
 }
 
+//TABLET && DESKTOP
+@media (min-width: 576px) {
+  body {
+    justify-content: center;
 
+    header {
+      width: 80%;
+    }
 
+    main {
+      width: 80%;
+    }
 
-//TABLET
-@media (min-width: 768px) {
+    section.stats__area {
+      padding: 48px;
+      .number__stats {
+        .stats__section {
+          text-align: left !important;
+        }
+      }
+
+      .links__grid {
+        margin: 0;
+      }
+
+      #user__image__sm {
+        display: none;
+      }
+
+      .avatar_for_large_screens {
+        display: block;
+
+        img {
+          height: 117px !important;
+          width: 117px !important;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
 }
 
 
-//DESKTOP
-@media (min-width: 1200px) {
-  #user__image__sm {
-    display: none;
+@media (min-width: 992px) {
+  main {
+    width: 50% !important;
   }
 
-  .avatar_for_large_screens {
-    display: block;
+  header {
+    width: 50% !important;
   }
 }

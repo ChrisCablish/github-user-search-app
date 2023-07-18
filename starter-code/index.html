@@ -20,15 +20,17 @@
 <body>
   <header>
     <div class="header__items__container">
-      <h1>devfinder</h1>
-      <div class="mode__switch__to__dark">
-        <span class="mode" id="modedark">DARK</span>
-        <img id="dark__icon" src="/starter-code/assets/icon-moon.svg" alt="">
-      </div>
-      <div class="mode__switch__to__light" style="display: none;">
-        <span class="mode" id="modelight">LIGHT</span>
-        <img id="light__icon" src="/starter-code/assets/icon-sun.svg" alt="">
-      </div>
+      <h1 id="devfinder">devfinder</h1>
+      <button class="mode__switch__button" id="mode__switch__button">
+        <div class="mode__switch__to__dark" id="dark__holder" >
+          <span class="mode" id="modedark">DARK</span>
+          <img id="dark__icon" src="/starter-code/assets/icon-moon.svg" alt="">
+        </div>
+        <div class="mode__switch__to__light" id="light__holder">
+          <span class="mode" id="modelight">LIGHT</span>
+          <img id="light__icon" src="/starter-code/assets/icon-sun.svg" alt="">
+        </div>
+      </button>
     </div>
   </header>
   <main>
