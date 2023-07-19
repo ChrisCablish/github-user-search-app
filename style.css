@@ -147,13 +147,14 @@ section.stats__area {
   width: 100%;
   padding: 24px;
   border-radius: 0.5rem;
+  margin-bottom: 5rem;
 }
 section.stats__area .main__info {
   display: flex;
   border: none;
 }
 section.stats__area .main__info .user__name {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 section.stats__area .main__info .user__image img {
@@ -190,7 +191,7 @@ section.stats__area .links__grid .single__link__div {
 @media (min-width: 576px) {
   body {
     justify-content: center;
-    font-size: 18px;
+    font-size: 16px;
   }
   body header {
     width: 80%;
@@ -221,7 +222,7 @@ section.stats__area .links__grid .single__link__div {
 }
 @media (min-width: 992px) {
   body {
-    font-size: 20px !important;
+    font-size: 16px !important;
   }
   main {
     width: 50% !important;

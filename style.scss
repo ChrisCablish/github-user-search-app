@@ -186,13 +186,14 @@ section.stats__area {
   width: 100%;
   padding: 24px;
   border-radius: 0.5rem;
+  margin-bottom: 5rem;
 
   .main__info {
     display: flex;
     border: none;
 
     .user__name {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 700;
     }
 
@@ -245,7 +246,7 @@ section.stats__area {
 @media (min-width: 576px) {
   body {
     justify-content: center;
-    font-size: 18px;
+    font-size: 16px;
     
 
     header {
@@ -288,7 +289,7 @@ section.stats__area {
 
 @media (min-width: 992px) {
   body {
-    font-size: 20px !important;
+    font-size: 16px !important;
   }
   main {
     width: 50% !important;
