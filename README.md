@@ -20,5 +20,5 @@ This  challenge was completed using design and assets from Front End Mentor
 
 
 repo URL: https://github.com/ChrisCablish/github-user-search-app  
-live site URL: 
+live site URL: https://chriscablish.github.io/github-user-search-app/  
 
