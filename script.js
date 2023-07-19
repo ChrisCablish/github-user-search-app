@@ -25,6 +25,7 @@ const body = document.querySelector('body');
 const header = document.querySelector('header');
 const sections = document.querySelectorAll('section');
 const stats = document.getElementById('number__stats');
+const search = document.getElementById('input');
 
 
 
@@ -158,7 +159,7 @@ const updateDisplay = (searchedUser) => {
 }
 
 //execution
-updateDisplay('octocat');
+updateDisplay('chriscablish');
 
 //search button
 button.addEventListener('click', () => {
@@ -184,6 +185,10 @@ modeSwitch.addEventListener('click', (event) => {
     header.classList.add('white__text');
     light.style.display = 'inline';
     dark.style.display = 'none';
+
+    search.classList.add('white__text');
+    search.classList.add('section__dark__background');
+
     isLight = false;
   } else {
     sections.forEach((s) => {
@@ -197,6 +202,10 @@ modeSwitch.addEventListener('click', (event) => {
     header.classList.remove('white__text');
     light.style.display = 'none';
     dark.style.display = 'inline';
+
+    search.classList.remove('white__text');
+    search.classList.remove('section__dark__background');
+
     isLight = true;
   }
 });
