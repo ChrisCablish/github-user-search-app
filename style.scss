@@ -64,10 +64,11 @@ body {
   max-width: 100%;
   background-color: $backgroundLight;
   color: #2b3442;
+  font-size: 16px;
 }
 
 .grayed {
-  color: gray;
+  color: $blueGray;
   text-decoration: none;
 }
 
@@ -124,6 +125,7 @@ section.search__bar {
   justify-content: space-between;
   align-items: center;
   border-radius: 0.5rem;
+  
 
   .icon__and__search {
     padding: 1rem;
@@ -139,6 +141,11 @@ section.search__bar {
       outline: none;
       flex: 1;
       max-width: 100%;
+      
+    }
+
+    input::placeholder {
+      font-size: 1rem;
     }
   }
 
@@ -160,7 +167,14 @@ section.search__bar {
       margin-right: 3px;
       border: none;
       border-radius: 0.5rem;
+      background-color: $blue;
+      color: $white;
     }
+
+    button:hover {
+      background-color: $paleBlue;
+    }
+
   }
 }
 
@@ -178,7 +192,7 @@ section.stats__area {
     border: none;
 
     .user__name {
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: 700;
     }
 
@@ -231,6 +245,8 @@ section.stats__area {
 @media (min-width: 576px) {
   body {
     justify-content: center;
+    font-size: 18px;
+    
 
     header {
       width: 80%;
@@ -271,8 +287,12 @@ section.stats__area {
 
 
 @media (min-width: 992px) {
+  body {
+    font-size: 20px !important;
+  }
   main {
     width: 50% !important;
+    
   }
 
   header {

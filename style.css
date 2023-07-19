@@ -41,10 +41,11 @@ body {
   max-width: 100%;
   background-color: rgb(246, 248, 255);
   color: #2b3442;
+  font-size: 16px;
 }
 
 .grayed {
-  color: gray;
+  color: rgb(105, 124, 154);
   text-decoration: none;
 }
 
@@ -111,6 +112,9 @@ section.search__bar .icon__and__search input {
   flex: 1;
   max-width: 100%;
 }
+section.search__bar .icon__and__search input::placeholder {
+  font-size: 1rem;
+}
 section.search__bar .error__and__button {
   display: flex;
   align-items: center;
@@ -128,6 +132,11 @@ section.search__bar .error__and__button button {
   margin-right: 3px;
   border: none;
   border-radius: 0.5rem;
+  background-color: rgb(0, 121, 255);
+  color: rgb(254, 254, 254);
+}
+section.search__bar .error__and__button button:hover {
+  background-color: rgb(75, 106, 155);
 }
 
 .avatar_for_large_screens {
@@ -144,7 +153,7 @@ section.stats__area .main__info {
   border: none;
 }
 section.stats__area .main__info .user__name {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 section.stats__area .main__info .user__image img {
@@ -181,6 +190,7 @@ section.stats__area .links__grid .single__link__div {
 @media (min-width: 576px) {
   body {
     justify-content: center;
+    font-size: 18px;
   }
   body header {
     width: 80%;
@@ -210,6 +220,9 @@ section.stats__area .links__grid .single__link__div {
   }
 }
 @media (min-width: 992px) {
+  body {
+    font-size: 20px !important;
+  }
   main {
     width: 50% !important;
   }
